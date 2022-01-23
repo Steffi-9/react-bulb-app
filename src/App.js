@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+
+import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+function App(props) {
+  
+    // first bulb
+    const [firstbulbState,setbulbfirst]=useState(false);
+  
+    
+  //second bulb
+    const [secondbulbState,setbulbsecond]=useState(false);
+    
+
+    const bulbOne =()=>{
+
+     setbulbfirst(!firstbulbState);
+      
+    };
+
+
+    const bulbSecond =()=>{
+      setbulbsecond(!secondbulbState)
+
+    }
+    
+    
+  
+
+ 
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {firstbulbState === false?<span className='dot dott'  style={{backgroundColor:"grey"}} ></span>:<span className='dot dott'  style={{backgroundColor:"orange"}} ></span>}
+      {secondbulbState === false?<span className='dot '  style={{backgroundColor:"grey"}} ></span>:<span className='dot '  style={{backgroundColor:"orange"}} ></span>}
+     
+     
+      <button className='button-design  dott' onClick={bulbOne} >{firstbulbState === false ?"OFF":"ON"}</button>
+      <button className='button-design'onClick={bulbSecond}>{secondbulbState === false ?"OFF":"ON"}</button>
+    
     </div>
   );
 }
